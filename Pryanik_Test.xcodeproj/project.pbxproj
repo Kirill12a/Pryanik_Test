@@ -13,9 +13,13 @@
 		D2A44CCE284011880016DF9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A44CCC284011880016DF9D /* Main.storyboard */; };
 		D2A44CD02840118A0016DF9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A44CCF2840118A0016DF9D /* Assets.xcassets */; };
 		D2A44CD32840118A0016DF9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A44CD12840118A0016DF9D /* LaunchScreen.storyboard */; };
+		D9B0CECAEE42726E0692713F /* Pods_Pryanik_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173D1A1CE55D6A52A508DDEF /* Pods_Pryanik_Test.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		173D1A1CE55D6A52A508DDEF /* Pods_Pryanik_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pryanik_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3839DD665008E7AA4EC9AE5 /* Pods-Pryanik_Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pryanik_Test.debug.xcconfig"; path = "Target Support Files/Pods-Pryanik_Test/Pods-Pryanik_Test.debug.xcconfig"; sourceTree = "<group>"; };
+		C23D0204DDF6C62AFCFEDDE9 /* Pods-Pryanik_Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pryanik_Test.release.xcconfig"; path = "Target Support Files/Pods-Pryanik_Test/Pods-Pryanik_Test.release.xcconfig"; sourceTree = "<group>"; };
 		D2A44CC3284011880016DF9D /* Pryanik_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pryanik_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A44CC6284011880016DF9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2A44CC8284011880016DF9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B0CECAEE42726E0692713F /* Pods_Pryanik_Test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2692F3CE294228B8A6E10868 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				173D1A1CE55D6A52A508DDEF /* Pods_Pryanik_Test.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C94D6D6FDE6A4EFBFE0AE6BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3839DD665008E7AA4EC9AE5 /* Pods-Pryanik_Test.debug.xcconfig */,
+				C23D0204DDF6C62AFCFEDDE9 /* Pods-Pryanik_Test.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D2A44CBA284011880016DF9D = {
 			isa = PBXGroup;
 			children = (
 				D2A44CC5284011880016DF9D /* Pryanik_Test */,
 				D2A44CC4284011880016DF9D /* Products */,
+				C94D6D6FDE6A4EFBFE0AE6BD /* Pods */,
+				2692F3CE294228B8A6E10868 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2A44CD72840118A0016DF9D /* Build configuration list for PBXNativeTarget "Pryanik_Test" */;
 			buildPhases = (
+				450A2A38C512AFFEEBABED43 /* [CP] Check Pods Manifest.lock */,
 				D2A44CBF284011880016DF9D /* Sources */,
 				D2A44CC0284011880016DF9D /* Frameworks */,
 				D2A44CC1284011880016DF9D /* Resources */,
+				8A85D89E30788FCF21C6ECF8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		450A2A38C512AFFEEBABED43 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pryanik_Test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A85D89E30788FCF21C6ECF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pryanik_Test/Pods-Pryanik_Test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pryanik_Test/Pods-Pryanik_Test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pryanik_Test/Pods-Pryanik_Test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2A44CBF284011880016DF9D /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		D2A44CD82840118A0016DF9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3839DD665008E7AA4EC9AE5 /* Pods-Pryanik_Test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +380,7 @@
 		};
 		D2A44CD92840118A0016DF9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23D0204DDF6C62AFCFEDDE9 /* Pods-Pryanik_Test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
