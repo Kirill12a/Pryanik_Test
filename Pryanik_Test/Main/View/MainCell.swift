@@ -6,49 +6,43 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainCell: UITableViewCell {
 
     static let reuseId = "cellid"
 
-    //MARK: - ConfigureCell
-
     weak var viewModel: MainCellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
             categoryLabel.text = viewModel.text
-
             if let imgString = viewModel.imgString {
                 pryanikyImageView.isHidden = false
                 activityIndicator.startAnimating()
                 activityIndicator.hidesWhenStopped = true
-
-                DispatchQueue.global().async {
                     guard let imageURL = URL(string: imgString) else {return}
-                    guard let imageData = try? Data(contentsOf: imageURL) else {return}
-
                     DispatchQueue.main.async {
-                        self.pryanikyImageView.image = UIImage(data: imageData)
+                        self.pryanikyImageView.kf.setImage(with: imageURL)
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.isHidden = true
                     }
-                }
             } else {
                 pryanikyImageView.isHidden = true
             }
         }
     }
 
-    //MARK: - Create UI
 
     var categoryLabel: UILabel = {
         var label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         return label
     }()
 
     var pryanikyImageView: UIImageView = {
         var view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.isHidden = true
         view.contentMode = .scaleAspectFit
         return view
@@ -56,11 +50,11 @@ class MainCell: UITableViewCell {
 
     var activityIndicator: UIActivityIndicatorView = {
         var indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.isHidden = true
         return indicator
     }()
 
-    //MARK: - Initialization
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -76,9 +70,6 @@ class MainCell: UITableViewCell {
 
     //MARK: - Setup Constraints
     private func setupConstraints(){
-        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-        pryanikyImageView.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
         addSubview(categoryLabel)
         addSubview(pryanikyImageView)

@@ -44,7 +44,6 @@ class MainViewController: UIViewController {
     }
 }
 
-//MARK: - Setup UI
 
 extension MainViewController {
 
@@ -65,11 +64,10 @@ extension MainViewController {
 
         backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backButtonAction))
         backButton.isEnabled = false
-        navigationItem.rightBarButtonItem = backButton
+        navigationItem.leftBarButtonItem = backButton
     }
 }
 
-//MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 

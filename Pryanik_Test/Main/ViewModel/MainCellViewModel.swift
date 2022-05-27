@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MainCellViewModelType: class {
+protocol MainCellViewModelType: AnyObject {
     var text: String { get }
     var imgString: String? { get }
 }
