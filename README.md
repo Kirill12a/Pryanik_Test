@@ -1,5 +1,6 @@
 # Pryanik_Test
-тестовое задание 
+## тестовое задание (iOS junior developer )
+
 
 - Kingfisher
 - Alamofire
